@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================
+   Global Styles
+   =========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #FFF8F0;
+  color: #3D2B1F;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ===========================
+   Custom Utility Classes
+   =========================== */
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-md border border-white/40 rounded-2xl shadow-lg;
+  }
+
+  /* Ornamental divider */
+  .ornament-divider {
+    @apply flex items-center justify-center gap-3 my-6;
+  }
+
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-gradient-to-l from-transparent via-gold to-transparent;
+  }
+
+  /* Gold shimmer text effect */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #C9A96E 0%,
+      #DFC99A 25%,
+      #C9A96E 50%,
+      #DFC99A 75%,
+      #C9A96E 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Elegant section container */
+  .section-container {
+    @apply w-full max-w-md mx-auto px-5 py-8;
+  }
+
+  /* Decorative border frame */
+  .decorative-frame {
+    @apply relative border-2 border-gold/30 rounded-3xl p-6;
+    background: linear-gradient(135deg, rgba(255,248,240,0.9), rgba(245,237,227,0.9));
+  }
+
+  .decorative-frame::before {
+    content: '';
+    @apply absolute inset-2 border border-gold/20 rounded-2xl pointer-events-none;
+  }
+
+  /* Floating particles background */
+  .particles-bg {
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(201,169,110,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(139,34,82,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(212,165,165,0.05) 0%, transparent 70%);
+  }
+}
+
+/* ===========================
+   Scrollbar Styling
+   =========================== */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4A5A5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A96E;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* Envelope-specific styles */
+.envelope-shadow {
+  box-shadow:
+    0 10px 40px rgba(139, 34, 82, 0.15),
+    0 4px 15px rgba(201, 169, 110, 0.1);
+}
+
+/* Input focus styles */
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.3);
+}
