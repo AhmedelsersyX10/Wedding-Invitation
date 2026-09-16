@@ -78,7 +78,7 @@ const MainContent = () => {
           {/* Illustration circle */}
           <div className="absolute inset-4 rounded-full bg-gradient-to-br from-rose-light/50 to-cream-dark flex items-center justify-center overflow-hidden border border-gold/20">
             <div className="text-center">
-              <img src="public/couple.png" alt="Couple" />
+              <img src={`${import.meta.env.BASE_URL}couple.png`} alt="Couple" />
             </div>
           </div>
         </div>
@@ -138,7 +138,6 @@ const MainContent = () => {
 
       {/* ===== Wedding Date ===== */}
       <motion.div variants={itemVariants} className="mb-4">
-        <p className="font-cairo text-sm text-dark-text/60 mb-2">بتاريخ</p>
         <div className="glass-card p-10 inline-block">
           <p className="font-cairo text-4xl md:text-4xl font-bold text-maroon">
             الخميس
